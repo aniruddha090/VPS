@@ -27,10 +27,11 @@ jobs:
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | tee /etc/apt/sources.list.d/ngrok.list
         apt-get update && apt-get install ngrok
 
-    - name: Configure SSH Access
+    - name: Create and configure runner user
       env:
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
       run: |
+        useradd -m -s /bin/bash runner
         echo "runner:${SSH_PASSWORD}" | chpasswd
         mkdir -p /home/runner/.ssh
         chown -R runner:runner /home/runner/.ssh
@@ -63,4 +64,3 @@ jobs:
       run: |
         chmod +x run_m_py.sh
         ./run_m_py.sh
-
