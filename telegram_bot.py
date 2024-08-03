@@ -4,8 +4,8 @@ import telebot
 import requests
 import time
 
-BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
-ALLOWED_USER_IDS = list(map(int, os.environ['ALLOWED_USER_IDS'].split(',')))
+BOT_TOKEN = os.environ['7254694496:AAHSkWPD_oob_R1P-8DXdSjkXuDRCA8_tLo']
+ALLOWED_USER_IDS = list(map(int, os.environ['6092284993'].split(',')))
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
